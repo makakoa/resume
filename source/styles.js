@@ -3,18 +3,34 @@
 var paddingMinor = "6px";
 
 var color = {
-	accent: "#4279ff",
-	border: "#bbbbbb",
-	gray: "#777777",
-	blue: "#4279ff",
-	font: "#444444",
+	'--accent': "#4279ff",
+	'--border': "#bbbbbb",
+	'--gray': "#777777",
+	'--blue': "#4279ff",
+	'--font': "#444444",
+  '--background': "#fff"
+};
+
+var darkColor = {
+	'--accent': "#5a8aff",
+	'--border': "#888",
+	'--gray': "#777777",
+	'--blue': "#5a8aff",
+	'--font': "#ddd",
+  '--background': "#000"
 };
 
 module.exports = [
 	"style",
 	{
+    'html.dark': {
+      ...darkColor
+    },
 		html: {
-			"background-color": "#eeeeee",
+      ...color,
+      transition: '300ms',
+			"background-color": "var(--background)",
+      color: 'var(--color)',
 			padding: "20px 20px 50px", // remove in print styles
 			margin: "0 auto",
 			overflow: "auto",
@@ -28,13 +44,14 @@ module.exports = [
 			body: {
 				position: "relative",
 				"box-shadow": "0 0 20px 0px gray", // borders show in print
-				"background-color": "white",
+				"background-color": "var(--background)",
 				width: "100%",
 				height: "100%",
 				margin: "0",
+        transition: "300ms",
 
 				"font-family": '"Nunito"',
-				color: color.font,
+				color: "var(--font)",
 				"box-sizing": "border-box",
 				padding: "8%", // 1" / 8.5" = ~11.76% standard resume margin
 				"font-size": "14px", // standard font-size is 12 - 14px
@@ -52,7 +69,7 @@ module.exports = [
 		},
 
 		".contact": {
-			color: color.font,
+			color: "var(--font)",
 		},
 
 		".redacted": {
@@ -78,8 +95,12 @@ module.exports = [
 			},
 		},
 
+    "a": {
+			color: "var(--blue)",
+    },
+
 		"a:visited": {
-			color: color.blue,
+			color: "var(--blue)",
 		},
 
 		h1: {
@@ -96,14 +117,14 @@ module.exports = [
 
 		header: {
 			"#last-name": {
-				color: color.accent,
+				color: "var(--accent)",
 			},
 			"flex-shrink": "0",
 			display: "flex",
 			"justify-content": "space-between",
 			a: {
 				"text-decoration": "none",
-				color: color.blue,
+				color: "var(--blue)",
 				"&:hover": {
 					"text-decoration": "underline",
 				},
@@ -150,7 +171,7 @@ module.exports = [
 			margin: "4px 0 0",
 			padding: "4px 8px",
 			"border-radius": "4px",
-			color: color.blue,
+			color: "var(--blue)",
 			cursor: "pointer",
 			"&:hover": {
 				"text-decoration": "underline",
@@ -163,7 +184,7 @@ module.exports = [
 			width: "100%",
 			padding: "10px 8px",
 			"margin-left": "-8px",
-			"background-color": "white",
+			"background-color": "var(--background)",
 			border: "1px solid #ccc",
 			"border-top": "none",
 			"border-bottom-left-radius": "4px",
@@ -192,7 +213,7 @@ module.exports = [
 			margin: "4px 0 0",
 			padding: "4px 8px",
 			"border-radius": "4px",
-			color: color.blue,
+			color: "var(--blue)",
 			cursor: "pointer",
 			"&:hover": {
 				"text-decoration": "underline",
@@ -204,7 +225,7 @@ module.exports = [
 		"#expandedprojects": {
 			width: "100%",
 			padding: "10px 0",
-			"background-color": "white",
+			"background-color": "var(--background)",
 			"border-bottom": "2px solid gray",
 			"z-index": "2",
 			position: "absolute",
@@ -234,7 +255,7 @@ module.exports = [
 				"font-weight": "300",
 				"font-size": "12px",
 				"text-decoration": "none",
-				color: color.font,
+				color: "var(--font)",
 			},
 			img: {
 				"margin-left": "8px",
@@ -259,7 +280,7 @@ module.exports = [
 
 				div: {
 					// 'box-shadow': '0 0 15px -3px gray',
-					// border: '1px solid ' + color.border,
+					// border: '1px solid ' + "var(--border)",
 					"border-radius": "4px",
 					margin: "20px 0",
 					padding: "8px",
@@ -272,7 +293,7 @@ module.exports = [
 					},
 					label: {
 						"font-size": "16px",
-						color: color.blue,
+						color: "var(--blue)",
 					},
 				},
 			},
@@ -280,7 +301,7 @@ module.exports = [
 			actions: {
 				"box-shadow": "0 0 15px -3px gray",
 				"border-radius": "4px",
-				border: "1px solid " + color.border,
+				border: "1px solid " + "var(--border)",
 				"letter-spacing": "1px",
 				overflow: "hidden",
 				display: "flex",
@@ -289,24 +310,24 @@ module.exports = [
 
 				".action": {
 					"text-align": "center",
-					color: color.font,
+					color: "var(--font)",
 					"text-decoration": "none",
 					"white-space": "nowrap",
 					"font-size": "16px",
 					display: "block",
 					cursor: "pointer",
 					border: "none",
-					"background-color": "#ffffff",
+					"background-color": "var(--background)",
 					padding: "10px 20px",
 					transition: "300ms",
-					"border-bottom": "1px solid " + color.border,
+					"border-bottom": "1px solid " + "var(--border)",
 					"&:last-child": {
 						"border-bottom": "none",
 					},
 					"&:hover": {
 						"box-shadow": "0 0 15px -5px gray",
 						"z-index": "1",
-						color: color.blue,
+						color: "var(--blue)",
 					},
 				},
 			},
@@ -320,7 +341,7 @@ module.exports = [
 			top: "100%",
 			"margin-top": "8px",
 			right: "8px",
-			color: color.font,
+			color: "var(--font)",
 			a: {
 				"text-decoration": "none",
 			},
@@ -339,16 +360,16 @@ module.exports = [
 
 				position: {
 					"font-size": "16px",
-					color: color.accent,
+					color: "var(--accent)",
 				},
 
 				"section-name": {
 					"font-size": "16px",
-					color: color.accent,
+					color: "var(--accent)",
 				},
 				"section-description": {
 					// 'font-size': '16px',
-					color: color.gray,
+					color: "var(--gray)",
 				},
 				right: {
 					a: {

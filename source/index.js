@@ -106,7 +106,7 @@ hyptiotes.mount(root, [
 			],
 		},
 		{
-			icon: ["img", { src: "./nomic.jpeg", width: 20 }],
+			icon: ["img", { src: "./nomic.png", width: 20 }],
 			position: "Software Engineer at",
 			location: "Nomic",
 			subtitle: "Recruiting Platform Startup",
@@ -281,6 +281,8 @@ hyptiotes.mount(root, [
 				},
 				"Download",
 			],
+
+      require("./darkmode"),
 
 			// ['button', {
 			//   class: 'action',
