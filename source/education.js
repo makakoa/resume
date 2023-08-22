@@ -21,7 +21,7 @@ module.exports = [
 			[
 				"left",
 				"University of Washington: Bachelor of Science in Neurobiology ",
-				["num", "(3.7)"],
+				// ["num", "(3.7)"],
 			],
 			["right", "2010 - 2014"],
 		],

@@ -31,7 +31,7 @@ module.exports = function createEmployment(entries) {
 											"justify-content": "center",
 											"align-items": "center",
 											"vertical-align": "middle",
-											margin: "0 8px 0 0px",
+											margin: "0 8px 0 0",
 											width: "20px",
 											height: "20px",
 										},
@@ -52,14 +52,14 @@ module.exports = function createEmployment(entries) {
 										class: l.disable ? "broken-link" : "",
 										href: l.url,
 									},
+									l.display,
 									l.disable
 										? null
 										: [
 												"span",
-												{ style: { margin: "0 4px", "font-size": "11px" } },
-												util.icon("link"),
+												{ style: { margin: "0 3px", "font-size": l.customIcon ? "" : "11px" } },
+												l.customIcon || util.icon("link"),
 										  ],
-									l.display,
 								];
 							}),
 							` ${start} - ${end}`,

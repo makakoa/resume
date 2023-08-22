@@ -6,8 +6,8 @@ const _ = require("lodash");
 
 const addEmployment = require("./employment");
 
-var webResumeURL = "https://makakoa.github.io/website/resume/";
-var webResumeText = "makakoa.github.io/website/resume";
+var webResumeURL = "https://makakoa.github.io/resume/";
+var webResumeText = "makakoa.github.io/resume";
 
 var keywords = "";
 
@@ -30,6 +30,30 @@ hyptiotes.mount(root, [
 	require("./skills"),
 
 	require("./employment")([
+    {
+			icon: ['img', {src: "./vyz-icon.png", width: '20px'}],
+			position: "Creator of ",
+			location: "Vyz",
+			subtitle: "MacOS Audio Visualizer",
+			links: [
+				{
+					display: "App Store",
+          customIcon: util.brand("app-store"),
+					url: "https://apps.apple.com/us/app/vyz/id6454350559",
+				},
+        {
+					display: "blog",
+					url: "https://vyz-app.tumblr.com/about",
+				},
+			],
+			start: "Mar.2023",
+			end: "Aug.2023",
+			bullets: [
+        "Designed, built, and published production quality MacOS Electron app to the Mac App Store",
+        "Engineered audio visualization engine powered by Web and Threejs with React configuration UI"
+			],
+    },
+
 		{
 			icon: util.brand("meta"),
 			position: "Software Engineer at ",
@@ -45,13 +69,13 @@ hyptiotes.mount(root, [
 					url: "https://www.facebook.com",
 				},
 			],
-			start: "July 2017",
-			end: "Feb 2023",
+			start: "Jul.2017",
+			end: "Feb.2023",
 			bullets: [
 				"Lead dozens of engineers on consolidation of Instagram Web and Facebook Web Infrastructure",
 				"Drove facebook web ad rendering and reliability efforts increasing web revenue by 10%+ ($100Ms)",
 				"Ran completion of web likes / comments rewrite as precursor to the facebook.com React rewrite",
-				"Developed insights and analyses and coordinated across dozens of stakeholders and teams",
+				// "Developed insights and analyses and coordinated across dozens of stakeholders and teams",
 				"Pioneered engineering culture on Instagram Web and community building on Mixed@ DEI club",
 			],
 		},
@@ -67,8 +91,8 @@ hyptiotes.mount(root, [
 					url: "https://alpha.flybox.online/about",
 				},
 			],
-			start: "July 2016",
-			end: "July 2017",
+			start: "Jul.2016",
+			end: "Jul.2017",
 			bullets: [
 				// 'Features: Rich Messaging, Email, Profiles, Search & Filter, Composition, Contacts, Animations, Tagging, Invites, Attachments, Embedding',
 				"Designed and built responsive SPA in React for desktop web, mobile web, iOS, and Android",
@@ -76,7 +100,7 @@ hyptiotes.mount(root, [
 				"Architected data model and synchronization logistics for an email compatible message platform",
 				// 'Programmed mock third party APIs for realistic End-to-End testing with Nightwatch.js',
 				// "Leveraged AWS S3 to replace email attachments with secure file hosting feature",
-				"Integrated AWS, Heroku, Cloudinary, Cloudflare, and Postgres",
+				// "Integrated AWS, Heroku, Cloudinary, Cloudflare, and Postgres",
 			],
 		},
 		{
@@ -96,13 +120,12 @@ hyptiotes.mount(root, [
 					url: "https://placedapp.com",
 				},
 			],
-			start: "Jan 2017",
-			end: "July 2017",
+			start: "Jan.2017",
+			end: "Jul.2017",
 			bullets: [
-				"Created powerful React sugar library to accelerate and simplify development of a hybrid SPA",
-				"Built lightweight JS to CSS transpiler with PostCSS integration and flexible media query handles",
-				"Extended web app created with a home rolled reactive framework for dual mode resume browsing",
-				"Maintained Python machine learning algorithm for classifying attachments as resumes",
+				"Created React sugar and JS to CSS libraries to simplify hybrid development",
+				// "Extended web app created with a home rolled reactive framework for dual mode resume browsing",
+				"Iterated on Python ML classification algorithm for resumes and resume dual browsing application",
 			],
 		},
 		{
@@ -121,8 +144,8 @@ hyptiotes.mount(root, [
 					//   url: "https://www.linkedin.com/company/2197996/"
 				},
 			],
-			start: "April 2015",
-			end: "July 2016",
+			start: "Apr.2015",
+			end: "Jul.2016",
 			bullets: [
 				"Owned internal tool development and worked on multiple web apps built with reactive framework",
 				"Made contributions to UI and feature design for handling recruiting candidate pipelines",
@@ -136,12 +159,12 @@ hyptiotes.mount(root, [
 			subtitle: "Bioinformatics Lab",
 			links: [
 				{
-					display: "research paper",
+					display: "Research Paper",
 					url: "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003851",
 				},
 			],
-			start: "May 2013",
-			end: "August 2013",
+			start: "May.2013",
+			end: "Aug.2013",
 			bullets: [
 				"Published co-author in pilot study to correlate breast cancer subtypes and genes of interest",
 				"Programmed testing frameworks in R and Perl to find statistical correlations in genomic data",
@@ -150,15 +173,28 @@ hyptiotes.mount(root, [
 	]),
 
 	require("./creations")([
-		{
-			iconSrc: "./vyz-icon.png",
-			name: "Vyz",
-			subtitle: "MacOS Audio Visualizer",
+		// {
+		// 	iconSrc: "./vyz-icon.png",
+		// 	name: "Vyz",
+		// 	subtitle: "MacOS Audio Visualizer",
+		// 	links: [
+		// 		{
+		// 			url: "https://apps.apple.com/us/app/vyz/id6454350559",
+		// 			icon: util.brand("app-store"),
+		// 			name: "app store",
+		// 		},
+		// 	],
+		// },
+
+    {
+			iconSrc: "./hyptiotes-small.png",
+			name: "Hyptiotes",
+			subtitle: "Spring-Powered Ultralight Web Framework",
 			links: [
 				{
-					url: "https://apps.apple.com/us/app/vyz/id6454350559",
-					icon: util.brand("app-store"),
-					name: "app store",
+					url: "https://github.com/makakoa/resume",
+					icon: util.brand("github"),
+					name: "Github",
 				},
 			],
 		},
@@ -182,12 +218,12 @@ hyptiotes.mount(root, [
 				{
 					url: "http://makakoa.github.io/braincryption/app/",
 					icon: util.icon("link"),
-					name: "demo",
+					name: "Demo",
 				},
 				{
 					url: "https://chrome.google.com/webstore/detail/braincryption/cdhppfjjeickpbhjmjplnddeklonjhkj",
 					icon: util.brand("chrome"),
-					name: "chrome extension",
+					name: "Chrome Extension",
 				},
 			],
 		},
@@ -197,7 +233,7 @@ hyptiotes.mount(root, [
 
 	[
 		"hyptiotes-tag",
-		"built with my own ",
+		"built with ",
 		[
 			"a",
 			{
