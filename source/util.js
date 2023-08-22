@@ -12,8 +12,9 @@ function list(items, atts) {
 	];
 }
 
-function icon(name) {
-	return ["i", { class: "fa fa-" + name}];
+function icon(name, solid = true) {
+  const prefix = solid ? 'fa-solid' : 'fa-regular';
+	return ["i", { class: prefix + " fa-" + name}];
 }
 function brand(name, ) {
 	return ["i", { class: "fa-brands fa-" + name}];
@@ -51,6 +52,10 @@ function getPhone() {
 	return atob(decodeURIComponent(encodedPhone));
 }
 
+function isChromeBased() {
+  return !!window.chrome;
+}
+
 function formatPhone(p) {
 	return `(${p.slice(0, 3)}) ${p.slice(3, 6)}-${p.slice(6)}`;
 }
@@ -62,4 +67,5 @@ module.exports = {
 	getParam,
 	getEmail,
 	getPhone,
+  isChromeBased
 };

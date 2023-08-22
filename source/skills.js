@@ -37,7 +37,22 @@ module.exports = [
 		style: { position: "relative" },
 	},
 
-	["h2", "Programming", util.icon("code")],
+	[
+		"h2",
+		"Programming",
+		util.icon("code"),
+		[
+			"label",
+			{
+				id: "expandskills",
+				for: "expandcheck",
+				style: {
+					'font-size': '12px', color: 'var(--gray)', 'margin-left': 'auto'
+				}
+			},
+			'(see more)'
+		],
+	],
 
 	[
 		"table",
@@ -83,14 +98,5 @@ module.exports = [
 			},
 			"Collapse",
 		],
-	],
-
-	[
-		"label",
-		{
-			id: "expandskills",
-			for: "expandcheck",
-		},
-		"Expand Skills",
 	],
 ];

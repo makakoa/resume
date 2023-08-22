@@ -11,7 +11,7 @@ module.exports = function createEmployment(entries) {
 				"justify-content": "space-between",
 			},
 		},
-		["h2", "Work", util.icon("calendar-check-o")],
+		["h2", "Work", util.icon("calendar-check", false)],
 
 		...entries.map(
 			({ icon, position, location, subtitle, links, start, end, bullets }) => {

@@ -1,6 +1,7 @@
 // Working copy while I test it out
 
-// Hyptiotes spin webs known for speed, flexibility, and power
+// Hyptiotes (the triangle weaver) is known for using a spring loaded triangular web
+// Like the weaver, Hyptiotes.js aims to spring load basic web technologies by bridging their interfaces
 //
 // Goal: Rework building web with little magic and little inconvenience
 //
@@ -10,7 +11,8 @@
 //
 // Concepts:
 //  - Flip the paradigm of logic powered markup to be markup powered logic
-//  - Web has quirks, don't hide them
+//  - Web has quirks, don't hide them with more quirks. Keep it simple. Keep it vanilla.
+//  - This is a web framework, not a logic framework. It should not be "smart" or stateful.
 //
 
 hyptiotes = {

@@ -1,3 +1,5 @@
+const theme = require("./theme");
+
 module.exports = [
 	"style",
 	{
@@ -105,7 +107,11 @@ module.exports = [
 		},
 
 		"@media print": {
+			'html.dark': {
+				...theme.light
+			},
 			html: {
+				...theme.light,
 				height: "100%",
 				width: "100%",
 				padding: 0,
@@ -116,16 +122,17 @@ module.exports = [
 					width: "100%",
 				},
 			},
-			h2: {
-				"margin-top": "8px",
+			'.segment': {
+				'margin-top': '8px'
 			},
 			"#expandskills": {
 				display: "none",
 			},
-			"qr-code": {
-				// display: 'block'
-			},
+
 			"#online-tag": {
+				position: 'absolute',
+				bottom: '5px',
+				right: '5px',
 				color: "black",
 				"text-decoration": "none",
 				opacity: "0.5",

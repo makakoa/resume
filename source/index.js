@@ -6,8 +6,6 @@ const _ = require("lodash");
 
 const addEmployment = require("./employment");
 
-var resumePath =
-	"https://makakoa.github.io/website/resume/resume/cameron-yee-resume-redacted.pdf";
 var webResumeURL = "https://makakoa.github.io/website/resume/";
 var webResumeText = "makakoa.github.io/website/resume";
 
@@ -25,9 +23,10 @@ var brokenLink = {
 hyptiotes.mount(root, [
 	"div",
 	require("./styles"),
-	require("./mobile.styles"),
+	require("./media.styles"),
 
 	require("./header"),
+
 	require("./skills"),
 
 	require("./employment")([
@@ -50,10 +49,10 @@ hyptiotes.mount(root, [
 			end: "Feb 2023",
 			bullets: [
 				"Lead dozens of engineers on consolidation of Instagram Web and Facebook Web Infrastructure",
-				"Drove facebook web ad rendering and testing efforts increasing web revenue by 10%+ ($100Ms)",
-				"Ran completion of web comment interface rewrite as precursor to the facebook.com React rewrite",
+				"Drove facebook web ad rendering and reliability efforts increasing web revenue by 10%+ ($100Ms)",
+				"Ran completion of web likes / comments rewrite as precursor to the facebook.com React rewrite",
 				"Developed insights and analyses and coordinated across dozens of stakeholders and teams",
-				"Pioneered engineering culture on Instagram Web and steered company DEI club Mixed@",
+				"Pioneered engineering culture on Instagram Web and community building on Mixed@ DEI club",
 			],
 		},
 		{
@@ -76,7 +75,8 @@ hyptiotes.mount(root, [
 				"Constructed Node API with PubNub for push notifications and real-time updates between clients",
 				"Architected data model and synchronization logistics for an email compatible message platform",
 				// 'Programmed mock third party APIs for realistic End-to-End testing with Nightwatch.js',
-				"Leveraged AWS S3 to replace email attachments with secure file hosting feature",
+				// "Leveraged AWS S3 to replace email attachments with secure file hosting feature",
+				"Integrated AWS, Heroku, Cloudinary, Cloudflare, and Postgres",
 			],
 		},
 		{
@@ -115,6 +115,10 @@ hyptiotes.mount(root, [
 					display: "nomic.com",
 					disable: true,
 					url: "https://nomic.com",
+					// },
+					// {
+					//   display: 'nomic',
+					//   url: "https://www.linkedin.com/company/2197996/"
 				},
 			],
 			start: "April 2015",
@@ -140,7 +144,7 @@ hyptiotes.mount(root, [
 			end: "August 2013",
 			bullets: [
 				"Published co-author in pilot study to correlate breast cancer subtypes and genes of interest",
-				"Programmed algorithms in R and Perl to run statistical tests to find correlations in genomic data",
+				"Programmed testing frameworks in R and Perl to find statistical correlations in genomic data",
 			],
 		},
 	]),
@@ -149,7 +153,7 @@ hyptiotes.mount(root, [
 		{
 			iconSrc: "./vyz-icon.png",
 			name: "Vyz",
-			subtitle: "MacOS Music Visualizer",
+			subtitle: "MacOS Audio Visualizer",
 			links: [
 				{
 					url: "https://apps.apple.com/us/app/vyz/id6454350559",
@@ -182,7 +186,7 @@ hyptiotes.mount(root, [
 				},
 				{
 					url: "https://chrome.google.com/webstore/detail/braincryption/cdhppfjjeickpbhjmjplnddeklonjhkj",
-					icon: util.icon("chrome"),
+					icon: util.brand("chrome"),
 					name: "chrome extension",
 				},
 			],
@@ -192,26 +196,22 @@ hyptiotes.mount(root, [
 	require("./education"),
 
 	[
-		"qr-code",
-		[
-			"a",
-			{
-				href: webResumeURL,
-			},
-			webResumeText,
-		],
-		// ['img', {src: './resume/qrcode.svg'}]
-	],
-
-	[
 		"hyptiotes-tag",
-		"built with ",
+		"built with my own ",
 		[
 			"a",
 			{
 				href: "https://github.com/makakoa/yeezyhtml",
 			},
 			"hyptiotes.js",
+			[
+				"img",
+				{
+					src: "./hyptiotes-small.png",
+					width: "20px",
+					style: { margin: "0 8px" },
+				},
+			],
 		],
 		" (w/ ",
 		[
@@ -229,74 +229,10 @@ hyptiotes.mount(root, [
 			},
 			"fontawesome",
 		],
-    ")"
+		")",
 	],
 
-	[
-		"side-area",
-		[
-			"profile",
-			[
-				"img",
-				{
-					src:
-						"https://res.cloudinary.com/flybox-local/image/upload/1-4d50d0d" +
-						"96102b3bc8f6dd2f1556b0daaf355c24acfee4a26f0f1921f53149cd2.png",
-				},
-			],
-			["div", ["name", "Cameron Yee"], ["label", "Full-Stack Developer"]],
-		],
-
-		[
-			"iframe",
-			{
-				style: {
-					display: "none",
-				},
-				name: "pdf",
-				id: "pdf",
-				src: resumePath,
-			},
-		],
-
-		[
-			"actions",
-
-			[
-				"a",
-				{
-					class: "action",
-					target: "_blank",
-					href: resumePath,
-				},
-				"Open PDF",
-			],
-
-			[
-				"a",
-				{
-					class: "action",
-					href: resumePath,
-					download: null,
-				},
-				"Download",
-			],
-
-      require("./darkmode"),
-
-			// ['button', {
-			//   class: 'action',
-			//   onClick: 'var r=window.frames.pdf;r.focus();r.print()'
-			//   // onClick:'window.print()'
-			// }, 'Print']
-
-			// ['a', {
-			//   href: 'path_to_file',
-			//   class: 'action',
-			//   download: './resume.html'
-			// }, 'Download HTML']
-		],
-	],
+	require("./sidearea"),
 
 	require("./keywords"),
 
@@ -304,8 +240,8 @@ hyptiotes.mount(root, [
 		"a",
 		{
 			id: "online-tag",
-			href: webResumeURL,
+			href: webResumeURL + window.location.search,
 		},
-		webResumeText,
+		webResumeText + window.location.search,
 	],
 ]);

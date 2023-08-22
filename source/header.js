@@ -17,7 +17,7 @@ module.exports = [
 			"a",
 			{
 				id: "phone-link",
-				class: ["header-info-item", "contact"].join(" "),
+				class: ["header-info-item", "contact", phone ? "" : "redacted"].join(" "),
 				href: "tel:" + phone,
 			},
 			util.icon("phone"),
@@ -25,7 +25,6 @@ module.exports = [
 				"span",
 				{
 					id: "phone",
-					class: phone ? "" : "redacted",
 				},
 				phone || "555-123-4567",
 			],
@@ -34,15 +33,14 @@ module.exports = [
 			"a",
 			{
 				id: "email-link",
-				class: ["header-info-item", "contact"].join(" "),
+				class: ["header-info-item", "contact", email ? "" : "redacted"].join(" "),
 				href: "mailto:" + email,
 			},
-			util.icon("envelope-o"),
+			util.icon("envelope", true),
 			[
 				"span",
 				{
 					id: "email",
-					class: email ? "" : "redacted",
 				},
 				email || "email@example.com",
 			],
@@ -52,7 +50,7 @@ module.exports = [
 			{
 				class: "header-info-item",
 			},
-			util.icon("map-marker"),
+			util.icon("location-dot", true),
 			"New York, NY",
 		],
 	],
@@ -74,7 +72,7 @@ module.exports = [
 				class: "header-info-item",
 				href: "https://github.com/makakoa",
 			},
-			util.icon("github"),
+			util.brand("github", false),
 			"github.com/makakoa",
 		],
 		[
@@ -83,7 +81,7 @@ module.exports = [
 				class: "header-info-item",
 				href: "https://www.linkedin.com/in/makakoa",
 			},
-			util.icon("linkedin"),
+			util.brand("linkedin"),
 			"linkedin.com/in/makakoa",
 		],
 	],

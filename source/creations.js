@@ -5,7 +5,7 @@ module.exports = function addCreations(creations) {
 		"div",
 		{ class: "segment" },
 		{ style: { position: "relative" } },
-		["h2", "Creations", util.icon("code-fork")],
+		["h2", "Creations", util.icon("code-branch")],
 
 		...creations.map((creation) => {
 			return [

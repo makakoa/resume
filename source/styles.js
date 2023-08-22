@@ -1,36 +1,18 @@
-"use strict";
+const theme = require("./theme");
 
 var paddingMinor = "6px";
-
-var color = {
-	'--accent': "#4279ff",
-	'--border': "#bbbbbb",
-	'--gray': "#777777",
-	'--blue': "#4279ff",
-	'--font': "#444444",
-  '--background': "#fff"
-};
-
-var darkColor = {
-	'--accent': "#5a8aff",
-	'--border': "#888",
-	'--gray': "#777777",
-	'--blue': "#5a8aff",
-	'--font': "#ddd",
-  '--background': "#000"
-};
 
 module.exports = [
 	"style",
 	{
-    'html.dark': {
-      ...darkColor
-    },
+		"html.dark": {
+			...theme.dark,
+		},
 		html: {
-      ...color,
-      transition: '300ms',
-			"background-color": "var(--background)",
-      color: 'var(--color)',
+			...theme.light,
+			transition: "300ms",
+			"background-color": "var(--wash)",
+			color: "var(--color)",
 			padding: "20px 20px 50px", // remove in print styles
 			margin: "0 auto",
 			overflow: "auto",
@@ -48,7 +30,7 @@ module.exports = [
 				width: "100%",
 				height: "100%",
 				margin: "0",
-        transition: "300ms",
+				transition: "300ms",
 
 				"font-family": '"Nunito"',
 				color: "var(--font)",
@@ -73,8 +55,30 @@ module.exports = [
 		},
 
 		".redacted": {
+      position: "relative",
+			"&:active": {
+				"pointer-events": "none", // disable everything but hover
+			},
 			"text-decoration": "line-through",
-			color: "gray",
+			color: "var(--soft-warn)",
+			"&:visited": {
+				color: "var(--soft-warn)",
+			},
+			"&:hover": {
+				"text-decoration": "line-through",
+				"::after": {
+					position: "absolute",
+					top: "100%",
+          'margin-top': '5px',
+          padding: '8px 12px',
+          'border-radius': '6px',
+          'background-color': 'var(--soft-warn)',
+          color: 'var(--background)',
+					content: '"URL Params needed for contact info"',
+					display: "block",
+          width: '140px'
+				},
+			},
 		},
 
 		"h1,h2,h3,padding": {
@@ -89,18 +93,18 @@ module.exports = [
 		},
 
 		button: {
+			"font-family": "inherit",
 			"&:focus": {
 				"outline-width": "0",
 				outline: "none",
 			},
 		},
 
-    "a": {
+		a: {
 			color: "var(--blue)",
-    },
-
-		"a:visited": {
-			color: "var(--blue)",
+			"&:visited": {
+				color: "var(--blue)",
+			},
 		},
 
 		h1: {
@@ -116,6 +120,7 @@ module.exports = [
 		},
 
 		header: {
+			"margin-bottom": "8px",
 			"#last-name": {
 				color: "var(--accent)",
 			},
@@ -130,7 +135,8 @@ module.exports = [
 				},
 			},
 			".header-info-item": {
-				".fa": {
+				i: {
+					"font-size": "12px",
 					"margin-right": "4px",
 					width: "20px",
 					"text-align": "center",
@@ -149,7 +155,7 @@ module.exports = [
 			display: "flex",
 			"align-items": "center",
 			"margin-bottom": paddingMinor,
-			".fa": {
+			i: {
 				"font-size": "18px",
 				opacity: "0.5",
 				"margin-left": "12px",
@@ -239,28 +245,8 @@ module.exports = [
 			display: "none",
 		},
 
-    'img': {
-      'vertical-align': "middle"
-    },
-
-		"qr-code": {
-			"text-transform": "lowercase",
-			display: "none",
-			// position: 'absolute',
-			opacity: "0.5",
-			"margin-left": "auto",
-			// right: '0',
-			// top: '100%',
-			a: {
-				"font-weight": "300",
-				"font-size": "12px",
-				"text-decoration": "none",
-				color: "var(--font)",
-			},
-			img: {
-				"margin-left": "8px",
-				height: "50px",
-			},
+		img: {
+			"vertical-align": "middle",
 		},
 
 		"side-area": {
@@ -303,7 +289,6 @@ module.exports = [
 				"border-radius": "4px",
 				border: "1px solid " + "var(--border)",
 				"letter-spacing": "1px",
-				overflow: "hidden",
 				display: "flex",
 				"flex-direction": "column",
 				"margin-top": "40px",
@@ -348,7 +333,7 @@ module.exports = [
 		},
 
 		".segment": {
-			// 'margin-top': '20px'
+			"margin-top": "15px",
 		},
 
 		section: {
@@ -385,9 +370,9 @@ module.exports = [
 			},
 		},
 
-		".broken-link": {
+		"a.broken-link": {
 			"text-decoration": "line-through",
-			color: "gray",
+			color: "var(--gray)",
 			opacity: "30%",
 			"pointer-events": "none",
 		},

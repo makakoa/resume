@@ -1,9 +1,11 @@
+const util = require("./util");
+
 let isDark = false;
 module.exports = function darkMode({ update }) {
 	return [
 		"button",
 		{
-      class: 'action',
+			class: "action",
 			onclick: function () {
 				const doc = document.body.parentElement;
 				doc.setAttribute("class", isDark ? "" : "dark");
@@ -11,6 +13,7 @@ module.exports = function darkMode({ update }) {
 				update();
 			},
 		},
-		isDark ? "Light" : "Dark",
+		isDark ? "Light Mode" : "Dark Mode",
+		["span", { style: { "margin-left": "8px" } }, isDark ? util.icon("sun") : util.icon("moon")],
 	];
 };
