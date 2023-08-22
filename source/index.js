@@ -242,6 +242,7 @@ hyptiotes.mount(root, [
 			id: "online-tag",
 			href: webResumeURL + window.location.search,
 		},
+    "web version: ",
 		webResumeText + window.location.search,
 	],
 ]);

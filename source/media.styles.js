@@ -107,8 +107,8 @@ module.exports = [
 		},
 
 		"@media print": {
-			'html.dark': {
-				...theme.light
+			"html.dark": {
+				...theme.light,
 			},
 			html: {
 				...theme.light,
@@ -122,19 +122,20 @@ module.exports = [
 					width: "100%",
 				},
 			},
-			'.segment': {
-				'margin-top': '8px'
+			".segment": {
+				"margin-top": "8px",
 			},
 			"#expandskills": {
 				display: "none",
 			},
 
 			"#online-tag": {
-				position: 'absolute',
-				bottom: '5px',
-				right: '5px',
+				position: "absolute",
+				bottom: "8px",
+				right: "8px",
 				color: "black",
 				"text-decoration": "none",
+				"font-size": "10px",
 				opacity: "0.5",
 				"text-align": "right",
 				display: "block",

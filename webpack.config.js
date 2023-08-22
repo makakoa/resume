@@ -4,7 +4,7 @@ const isDev = process.env.NODE_ENV === "development";
 
 const extended = isDev
 	? {
-			ode: "development",
+			mode: "development",
 			devtool: "eval-cheap-source-map",
 			devServer: {
 				static: {

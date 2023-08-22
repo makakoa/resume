@@ -12,9 +12,7 @@ module.exports = [
 		[
 			"img",
 			{
-				src:
-					"https://res.cloudinary.com/flybox-local/image/upload/1-4d50d0d" +
-					"96102b3bc8f6dd2f1556b0daaf355c24acfee4a26f0f1921f53149cd2.png",
+				src: missingContact ? "funshot.jpg" : "headshot.png",
 			},
 		],
 		["div", ["name", "Cameron Yee"], ["label", "Full-Stack Developer"]],

@@ -261,7 +261,9 @@ module.exports = [
 				img: {
 					"box-shadow": "0 0 15px -3px gray",
 					"border-radius": "50%",
-					height: "200px",
+					width: "200px",
+          height: "200px",
+          'object-fit': 'cover'
 				},
 
 				div: {
