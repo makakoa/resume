@@ -201,7 +201,7 @@ hyptiotes.mount(root, [
 		[
 			"a",
 			{
-				href: "https://github.com/makakoa/yeezyhtml",
+				href: "https://github.com/makakoa/resume",
 			},
 			"hyptiotes.js",
 			[
