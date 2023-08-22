@@ -132,7 +132,7 @@ module.exports = [
 				"text-align": "right",
 				display: "block",
 			},
-			"yeezyhtml-tag": {
+			"hyptiotes-tag": {
 				display: "none",
 			},
 			"side-area": {

@@ -45,12 +45,8 @@ module.exports = [
 			},
 		},
 
-		num: {
-			"font-family": "Arial, sans-serif", // raleway numbers are jank
-		},
-
 		keywords: {
-			"margin-top": "-20px", // so page spacing is less impacted
+			"margin-top": "-40px", // so page spacing is less impacted
 			"font-size": "2px",
 			opacity: 0.01,
 		},
@@ -316,7 +312,7 @@ module.exports = [
 			},
 		},
 
-		"yeezyhtml-tag": {
+		"hyptiotes-tag": {
 			"font-size": "14px",
 			"font-weight": "300",
 			display: "inline-block",
