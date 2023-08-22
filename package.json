@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve": "webpack serve",
-    "pack": "webpack"
+    "dev": "NODE_ENV=development webpack serve",
+    "publish": "webpack & gh-pages --dist 'dist'"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "gh-pages": "^6.0.0",
     "lodash": "^4.17.21",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4",
