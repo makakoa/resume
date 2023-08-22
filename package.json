@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "NODE_ENV=development webpack serve",
-    "publish": "webpack & gh-pages --dist 'dist'"
+    "publish": "webpack && gh-pages --dist 'dist'"
   },
   "author": "",
   "license": "ISC",
