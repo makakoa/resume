@@ -62,7 +62,9 @@ module.exports = function createEmployment(entries) {
 										  ],
 								];
 							}),
-							` ${start} - ${end}`,
+							start,
+							' - ',
+							end
 						],
 					],
 					["section-content", util.list(bullets)],

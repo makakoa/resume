@@ -35,6 +35,7 @@ module.exports = function addCreations(creations) {
 								{
 									class: l.disable ? "broken-link" : "",
 									href: l.url,
+									style: { "margin-left": "6px" },
 								},
 								["span", { style: { "margin-right": "5px" } }, l.name],
 								l.icon || null,

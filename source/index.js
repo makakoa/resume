@@ -2,7 +2,6 @@ const hyptiotes = require("../hyptiotes");
 const root = document.getElementById("root");
 
 const util = require("./util");
-const _ = require("lodash");
 
 const addEmployment = require("./employment");
 
@@ -20,6 +19,8 @@ var brokenLink = {
 	},
 };
 
+const vyzAsWork = false;
+
 hyptiotes.mount(root, [
 	"div",
 	require("./styles"),
@@ -30,29 +31,57 @@ hyptiotes.mount(root, [
 	require("./skills"),
 
 	require("./employment")([
-    {
-			icon: ['img', {src: "./vyz-icon.png", width: '20px'}],
-			position: "Creator of ",
-			location: "Vyz",
-			subtitle: "MacOS Audio Visualizer",
-			links: [
+		{
+			icon: [
+				"span",
 				{
-					display: "App Store",
-          customIcon: util.brand("app-store"),
-					url: "https://apps.apple.com/us/app/vyz/id6454350559",
+					style: {
+						color: "var(--gray)",
+						transform: "rotate(90deg)",
+						opacity: 0.5,
+					},
 				},
-        {
-					display: "blog",
-					url: "https://vyz-app.tumblr.com/about",
-				},
+				util.icon("arrows-left-right-to-line"),
 			],
-			start: "Mar.2023",
-			end: "Aug.2023",
+			position: "",
+			location: "",
+			subtitle: "Developed and Published Vyz and Hyptiotes.js (under projects)",
+			links: [],
+			start: ['span', {style:{color:'var(--gray)'}}, "Mar.2023"],
+			end: ['span', {style:{color:'var(--gray)'}}, "Now"],
 			bullets: [
-        "Designed, built, and published production quality MacOS Electron app to the Mac App Store",
-        "Engineered audio visualization engine powered by Web and Threejs with React configuration UI"
+				// "Designed, built, and published production quality MacOS Electron app to the Mac App Store",
+				// "Engineered audio visualization engine powered by Web and Threejs with React configuration UI"
 			],
-    },
+		},
+
+		...(vyzAsWork
+			? [
+					{
+						icon: ["img", { src: "./vyz-icon.png", width: "20px" }],
+						position: "Built and Published ",
+						location: "Vyz",
+						subtitle: "MacOS Audio Visualizer",
+						links: [
+							{
+								display: "App Store",
+								customIcon: util.brand("app-store"),
+								url: "https://apps.apple.com/us/app/vyz/id6454350559",
+							},
+							{
+								display: "blog",
+								url: "https://vyz-app.tumblr.com/about",
+							},
+						],
+						start: "Mar.2023",
+						end: "Aug.2023",
+						bullets: [
+							// "Designed, built, and published production quality MacOS Electron app to the Mac App Store",
+							// "Engineered audio visualization engine powered by Web and Threejs with React configuration UI"
+						],
+					},
+			  ]
+			: []),
 
 		{
 			icon: util.brand("meta"),
@@ -72,7 +101,7 @@ hyptiotes.mount(root, [
 			start: "Jul.2017",
 			end: "Feb.2023",
 			bullets: [
-				"Lead dozens of engineers on consolidation of Instagram Web and Facebook Web Infrastructure",
+				"Lead dozens of engineers on consolidating Instagram Web onto Facebook Web Infrastructure",
 				"Drove facebook web ad rendering and reliability efforts increasing web revenue by 10%+ ($100Ms)",
 				"Ran completion of web likes / comments rewrite as precursor to the facebook.com React rewrite",
 				// "Developed insights and analyses and coordinated across dozens of stakeholders and teams",
@@ -95,9 +124,9 @@ hyptiotes.mount(root, [
 			end: "Jul.2017",
 			bullets: [
 				// 'Features: Rich Messaging, Email, Profiles, Search & Filter, Composition, Contacts, Animations, Tagging, Invites, Attachments, Embedding',
-				"Designed and built responsive SPA in React for desktop web, mobile web, iOS, and Android",
+				"Designed and built responsive hybrid React app for desktop web, mobile web, iOS, and Android",
 				"Constructed Node API with PubNub for push notifications and real-time updates between clients",
-				"Architected data model and synchronization logistics for an email compatible message platform",
+				"Architected data model and synchronization logistics for an email compatible rich message platform",
 				// 'Programmed mock third party APIs for realistic End-to-End testing with Nightwatch.js',
 				// "Leveraged AWS S3 to replace email attachments with secure file hosting feature",
 				// "Integrated AWS, Heroku, Cloudinary, Cloudflare, and Postgres",
@@ -123,9 +152,9 @@ hyptiotes.mount(root, [
 			start: "Jan.2017",
 			end: "Jul.2017",
 			bullets: [
-				"Created React sugar and JS to CSS libraries to simplify hybrid development",
+				"Created React sugar and JS to CSS front-end toolsets to accelerate hybrid app development",
 				// "Extended web app created with a home rolled reactive framework for dual mode resume browsing",
-				"Iterated on Python ML classification algorithm for resumes and resume dual browsing application",
+				"Extended Python ML classification algorithm for resumes and resume dual browsing application",
 			],
 		},
 		{
@@ -148,7 +177,7 @@ hyptiotes.mount(root, [
 			end: "Jul.2016",
 			bullets: [
 				"Owned internal tool development and worked on multiple web apps built with reactive framework",
-				"Made contributions to UI and feature design for handling recruiting candidate pipelines",
+				"Developed UI and feature design for handling recruiting candidate pipelines",
 				"Interviewed and lead new hires through onboarding, pair programming, and code review",
 			],
 		},
@@ -173,20 +202,29 @@ hyptiotes.mount(root, [
 	]),
 
 	require("./creations")([
-		// {
-		// 	iconSrc: "./vyz-icon.png",
-		// 	name: "Vyz",
-		// 	subtitle: "MacOS Audio Visualizer",
-		// 	links: [
-		// 		{
-		// 			url: "https://apps.apple.com/us/app/vyz/id6454350559",
-		// 			icon: util.brand("app-store"),
-		// 			name: "app store",
-		// 		},
-		// 	],
-		// },
+		...(vyzAsWork
+			? []
+			: [
+					{
+						iconSrc: "./vyz-icon.png",
+						name: "Vyz",
+						subtitle: "MacOS Audio Visualizer",
+						links: [
+							{
+								url: "https://apps.apple.com/us/app/vyz/id6454350559",
+								icon: util.brand("app-store"),
+								name: "App Store",
+							},
+							{
+								name: "Blog",
+								icon: util.brand("tumblr-square"),
+								url: "https://vyz-app.tumblr.com/about",
+							},
+						],
+					},
+			  ]),
 
-    {
+		{
 			iconSrc: "./hyptiotes-small.png",
 			name: "Hyptiotes",
 			subtitle: "Spring-Powered Ultralight Web Framework",
@@ -216,14 +254,14 @@ hyptiotes.mount(root, [
 			subtitle: "Software Driven Visual Encryption",
 			links: [
 				{
-					url: "http://makakoa.github.io/braincryption/app/",
-					icon: util.icon("link"),
-					name: "Demo",
-				},
-				{
 					url: "https://chrome.google.com/webstore/detail/braincryption/cdhppfjjeickpbhjmjplnddeklonjhkj",
 					icon: util.brand("chrome"),
 					name: "Chrome Extension",
+				},
+				{
+					url: "http://makakoa.github.io/braincryption/app/",
+					icon: util.icon("link"),
+					name: "Demo",
 				},
 			],
 		},
@@ -278,7 +316,7 @@ hyptiotes.mount(root, [
 			id: "online-tag",
 			href: webResumeURL + window.location.search,
 		},
-    "web version: ",
+		"web version: ",
 		webResumeText + window.location.search,
 	],
 ]);

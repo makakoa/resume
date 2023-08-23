@@ -17,7 +17,7 @@ var skills = {
 var expanded = {
 	"Third Party": ["Heroku", "AWS", "GoogleAPIs", "OAuth", "PubNub"],
 	DevOps: ["Webpack", "Make", "Grunt", "Gulp", "Livereload"],
-	Testing: ["Mocha", "Chai", "End-to-End", "Selenium", "Nightwatch"],
+	Testing: ["Jest-E2E", "Jest", "End-to-End", "Selenium", "Nightwatch"],
 	Utility: [
 		"Machine Learning",
 		"Full-text Search",
@@ -26,7 +26,7 @@ var expanded = {
 		"Push Notifications",
 	],
 	Media: ["Web Audio API", "WebGL", "Threejs", "Aframe", "AnalyserNode"],
-	Platform: ["Web", "Mobile Web", "iOS", "Android", "Cloud"],
+	Platform: ["Web", "Mobile Web", "MacOS", "iOS", "Android"],
 	Env: ["UNIX", "Emacs", "Bash", "Linux", "Xcode"],
 };
 
