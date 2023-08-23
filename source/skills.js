@@ -1,4 +1,3 @@
-const _ = require("lodash");
 const util = require("./util");
 
 var skills = {
@@ -57,11 +56,11 @@ module.exports = [
 	[
 		"table",
 		{ id: "shortlist" },
-		..._.map(skills, function (v, k) {
+		...util.mapObj(skills, function (k, v) {
 			return [
 				"tr",
 				["th", k],
-				..._.map(v, function (s) {
+				...v.map(function (s) {
 					return ["td", s];
 				}),
 			];
@@ -80,11 +79,11 @@ module.exports = [
 		{ id: "expandedlist" },
 		[
 			"table",
-			..._.map(expanded, function (v, k) {
+			...util.mapObj(expanded, function (k, v) {
 				return [
 					"tr",
 					["th", k],
-					..._.map(v, function (s) {
+					...v.map(function (s) {
 						return ["td", s];
 					}),
 				];

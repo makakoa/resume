@@ -7,7 +7,8 @@
 //
 // Means: Leverage the best of vanilla, bridging only the least smooth interfaces. particularly:
 //  - the separation of view, logic, and style
-//  - abstract handling ƒor basic events (like click and hover)
+//  - the lack of dynamic / functional html and css
+//  - abstract apis: managing dom, adding event listeners
 //
 // Concepts:
 //  - Flip the paradigm of logic powered markup to be markup powered logic
@@ -15,47 +16,53 @@
 //  - This is a web framework, not a logic framework. It should not be "smart" or stateful.
 //
 
+// Declare globally
 hyptiotes = {
 	mount: function (target, model) {
-    let dom = null;
-    try {
-      dom = spinWeb(model, target);
-    } catch (e) {
-      console.error('Error encountered rendering', e.model, ' inside of ', e.parent);
-      throw e;
-    }
+		let dom = null;
+		try {
+			dom = spinWeb(model, target);
+		} catch (e) {
+			console.error(
+				"Error encountered rendering",
+				e.model,
+				" inside of ",
+				e.parent
+			);
+			throw e;
+		}
 		target.innerHTML = "";
 		if (dom) target.appendChild(dom);
 	},
-  style
+	style,
 };
 window.hyptiotes = hyptiotes;
 
-// Convert hyptiotes model to DOM
+// Convert hyptiotes model to DOM, wrapped for error handling
 function spinWeb(model, parent) {
-  try {
-    return spinWebInternal(model, parent);
-  } catch (e) {
-    e.model = e.model || model;
-    e.parent = e.parent || parent;
-    throw e;
-  }
+	try {
+		return spinWebInternal(model, parent);
+	} catch (e) {
+		e.model = e.model || model;
+		e.parent = e.parent || parent;
+		throw e;
+	}
 }
 
 function spinWebInternal(model, parent) {
-
 	const [tag, ...children] = model;
 
-  if (tag === "style") {
-    style(children[0]);
-    return null;
-  }
+	// Don't love that these can be anywhere, but that's how it is
+	if (tag === "style") {
+		style(children[0]);
+		return null;
+	}
 
 	const element = document.createElement(tag);
 	children.forEach((item) => {
 		if (Array.isArray(item)) {
 			const nested = spinWeb(item, parent);
-      if (nested) element.appendChild(nested);
+			if (nested) element.appendChild(nested);
 		} else if (item === null || item === undefined) {
 			// skip
 		} else if (typeof item === "object") {
@@ -149,17 +156,16 @@ function generatorContent(fn, parent) {
 }
 
 function style(data) {
-  const element = document.createElement("style");
-  element.innerHTML = cssify(data);
-  document.head.appendChild(element);
+	const element = document.createElement("style");
+	element.innerHTML = cssify(data);
+	document.head.appendChild(element);
 }
 
-var _ = require("lodash");
-function cssify(obj, prefix) {
-	if (!prefix) prefix = "";
+function cssify(obj, prefix = "") {
 	var nested = "";
-	var current = _.map(obj, function (val, key) {
-		if (_.isObject(val)) {
+	var current = mapObj(obj, function (key, val) {
+		// Nested styles
+		if (val !== null && typeof val === "object") {
 			if (key.startsWith("@media")) {
 				nested += [key, "{", cssify(val, ""), "}"].join("");
 			} else {
@@ -170,10 +176,19 @@ function cssify(obj, prefix) {
 			}
 			return "";
 		}
-		return [key, ":", val, ";"].join("");
+		return [hyphenate(key), ":", val, ";"].join("");
 	}).join("");
 	if (!current) return nested;
 	return [prefix, "{", current, "}", nested].join("");
+}
+
+// Replace any capital letter with "-<lowercase>"
+function hyphenate(str) {
+	return str.replace(/[A-Z]/, (match) => "-" + match.toLowerCase());
+}
+
+function mapObj(object, cb) {
+	return Object.entries(object).map(([key, value]) => cb(key, value));
 }
 
 module.exports = hyptiotes;

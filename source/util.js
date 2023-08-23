@@ -1,23 +1,17 @@
-"use strict";
-
-var _ = require("lodash");
-
 function list(items, atts) {
-	return [
-		"ul",
-		atts || null,
-		..._.map(items, function (i) {
-			return ["li", i];
-		}),
-	];
+	return ["ul", atts || null, ...items.map((i) => ["li", i])];
+}
+
+function mapObj(object, cb) {
+	return Object.entries(object).map(([key, value]) => cb(key, value));
 }
 
 function icon(name, solid = true) {
-  const prefix = solid ? 'fa-solid' : 'fa-regular';
-	return ["i", { class: prefix + " fa-" + name}];
+	const prefix = solid ? "fa-solid" : "fa-regular";
+	return ["i", { class: prefix + " fa-" + name }];
 }
-function brand(name, ) {
-	return ["i", { class: "fa-brands fa-" + name}];
+function brand(name) {
+	return ["i", { class: "fa-brands fa-" + name }];
 }
 
 const urlparams = window.location.search
@@ -53,7 +47,7 @@ function getPhone() {
 }
 
 function isChromeBased() {
-  return !!window.chrome;
+	return !!window.chrome;
 }
 
 function formatPhone(p) {
@@ -62,10 +56,11 @@ function formatPhone(p) {
 
 module.exports = {
 	list,
+  mapObj,
 	icon,
-  brand,
+	brand,
 	getParam,
 	getEmail,
 	getPhone,
-  isChromeBased
+	isChromeBased,
 };

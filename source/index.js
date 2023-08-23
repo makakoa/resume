@@ -229,8 +229,13 @@ hyptiotes.mount(root, [
 			name: "Hyptiotes",
 			subtitle: "Spring-Powered Ultralight Web Framework",
 			links: [
+        {
+          url: "https://www.npmjs.com/package/hyptiotes",
+          icon: util.brand("npm"),
+          name: "npm",
+        },
 				{
-					url: "https://github.com/makakoa/resume",
+					url: "https://github.com/makakoa/hyptiotes",
 					icon: util.brand("github"),
 					name: "Github",
 				},

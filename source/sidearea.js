@@ -1,7 +1,6 @@
 const util = require("./util");
 
-var resumePath =
-	"https://makakoa.github.io/website/resume/resume/cameron-yee-resume-redacted.pdf";
+const PDF_PATH = "https://makakoa.github.io/resume/resume-redacted.pdf";
 
 const missingContact = !util.getPhone() || !util.getEmail();
 
@@ -26,7 +25,7 @@ module.exports = [
 			},
 			name: "pdf",
 			id: "pdf",
-			src: resumePath,
+			src: PDF_PATH,
 		},
 	],
 
@@ -42,11 +41,15 @@ module.exports = [
 					color: "var(--gray)",
 					margin: "8px",
 					"font-size": "12px",
-          'letter-spacing': '0px',
+					"letter-spacing": "0px",
 				},
 			},
 			missingContact
-				? ['span', {style:{color: 'var(--soft-warn)'}}, "*Note: Contact info is provided by URL Params online"]
+				? [
+						"span",
+						{ style: { color: "var(--soft-warn)" } },
+						"*Note: Contact info is provided by URL Params online",
+				  ]
 				: "*Contact redacted in online PDFs",
 			[
 				"div",
@@ -77,7 +80,7 @@ module.exports = [
 			{
 				class: "action",
 				target: "_blank",
-				href: resumePath,
+				href: PDF_PATH,
 			},
 			"Online PDF",
 			missingContact ? "" : ["span", { style: { color: "var(--gray)" } }, "*"],
@@ -87,7 +90,7 @@ module.exports = [
 			"a",
 			{
 				class: "action",
-				href: resumePath,
+				href: PDF_PATH,
 				download: null,
 			},
 			"Download PDF",
